@@ -1,16 +1,14 @@
 import './ExpenseItem.css'
 
-const ExpenseItem = () => {
-  const expenseDate = new Date(2022, 11, 2)
-  const expenseTitle = 'Car Insurance'
-  const expenseAmount = 294.67
+const ExpenseItem = (props) => {
+  console.log(props)
 
   return (
-    <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
+    <div className="expense-item" key={props.id}>
+      <div>{props.date.toLocaleDateString()}</div>
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">${expenseAmount}</div>
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   )
