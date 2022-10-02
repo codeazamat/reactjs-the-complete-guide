@@ -1,9 +1,10 @@
 import './Expenses.css'
 import ExpenseItem from './ExpenseItem'
+import Box from './Box'
 
 const Expenses = (props) => {
   return (
-    <div className="expenses">
+    <Box className="expenses">
       <ExpenseItem
         id={props.expenses[0].id}
         date={props.expenses[0].data}
@@ -28,7 +29,7 @@ const Expenses = (props) => {
         title={props.expenses[3].title}
         amount={props.expenses[3].amount}
       />
-    </div>
+    </Box>
   )
 }
 
