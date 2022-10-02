@@ -1,6 +1,6 @@
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate'
-import Box from './Box'
+import Box from '../UI/Box'
 
 const ExpenseItem = (props) => {
   console.log(props)

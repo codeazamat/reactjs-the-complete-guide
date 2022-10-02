@@ -1,6 +1,6 @@
 import './Expenses.css'
 import ExpenseItem from './ExpenseItem'
-import Box from './Box'
+import Box from '../UI/Box'
 
 const Expenses = (props) => {
   return (
