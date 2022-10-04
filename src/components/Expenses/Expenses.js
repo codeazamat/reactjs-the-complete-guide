@@ -1,10 +1,25 @@
 import './Expenses.css'
 import ExpenseItem from './ExpenseItem'
 import Box from '../UI/Box'
+import ExpensesFilter from './ExpensesFilter'
+import { useState } from 'react'
 
 const Expenses = (props) => {
+  const [filteredYear, setFilteredYear] = useState('2022')
+
+  const filterChangeHandler = (selectedYear) => {
+    console.log('Expenses.js')
+    console.log(selectedYear)
+    setFilteredYear(selectedYear)
+  }
+
   return (
     <Box className="expenses">
+      <ExpensesFilter
+        selected={filteredYear}
+        onFilterChange={filterChangeHandler}
+      />
+
       <ExpenseItem
         id={props.expenses[0].id}
         date={props.expenses[0].data}
