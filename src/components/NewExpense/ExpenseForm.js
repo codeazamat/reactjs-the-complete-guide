@@ -8,8 +8,6 @@ const ExpenseForm = () => {
     enteredDate: ''
   })
 
-  console.log(userInput)
-
   const titleChangeHandler = (event) => {
     // Best way to update state when it depends on the previous state
     setUserInput((prevState) => {
@@ -29,12 +27,34 @@ const ExpenseForm = () => {
     })
   }
 
+  const submitHandler = (event) => {
+    event.preventDefault()
+
+    const expenseData = {
+      title: userInput.enteredTitle,
+      amount: userInput.enteredAmount,
+      date: new Date(userInput.enteredDate)
+    }
+
+    console.log(expenseData)
+    setUserInput({
+      enteredTitle: '',
+      enteredAmount: '',
+      enteredDate: ''
+    })
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            id="title"
+            onChange={titleChangeHandler}
+            value={userInput.enteredTitle}
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="amount">Amount</label>
@@ -44,6 +64,7 @@ const ExpenseForm = () => {
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
+            value={userInput.enteredAmount}
           />
         </div>
         <div className="new-expense__control">
@@ -54,6 +75,7 @@ const ExpenseForm = () => {
             min="2000-01-01"
             max="2022-12-31"
             onChange={dateChangeHandler}
+            value={userInput.enteredDate}
           />
         </div>
       </div>
